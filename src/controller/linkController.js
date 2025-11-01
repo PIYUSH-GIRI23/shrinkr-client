@@ -151,47 +151,21 @@ export const getFullUrl = async (shortCode) => {
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
     const getFullUrlRoute = import.meta.env.VITE_GET_FULL_URL_ROUTE;
 
-    const accessToken = localStorage.getItem('shrinkr-accessToken');
-    if (!accessToken) {
-      throw new Error("No access token found. User might not be authenticated.");
-    }
-
-    const refreshToken = localStorage.getItem('shrinkr-refreshToken');
-    if (!refreshToken) {
-      throw new Error("No refresh token found. User might not be authenticated.");
-    }
-
     if(!shortCode) {
         throw new Error("Short code is required to fetch the full URL.");
     }
 
-    const token= {
-        access_token: accessToken,
-        refresh_token: refreshToken
-    }
     console.log(`${backendUrl}${getFullUrlRoute}${shortCode}`)
     const response = await fetch(`${backendUrl}${getFullUrlRoute}${shortCode}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'token': JSON.stringify(token)
       }
     });
 
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(errorData.error || 'Failed to fetch full URL');
-    }
-
-    const newAccessToken = response.headers.get('New-Access-Token');
-    const newRefreshToken = response.headers.get('New-Refresh-Token');
-
-    if (newAccessToken) {
-      localStorage.setItem('shrinkr-accessToken', newAccessToken);
-    }
-
-    if (newRefreshToken) {
-      localStorage.setItem('shrinkr-refreshToken', newRefreshToken);
     }
 
     const data = await response.json();
