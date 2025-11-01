@@ -302,8 +302,23 @@ const LinkDetailsModal = ({ isOpen, onClose, link }) => {
             // QR Tab
             <div className="flex flex-col items-center justify-center space-y-6">
               <div className="bg-white p-6 rounded-2xl" ref={qrContainerRef}>
-                {/* QRCodeSVG renders an inline <svg> which we target for download */}
-                <QRCodeSVG value={link.shortUrl} size={256} level="H" includeMargin={true} bgColor="#ffffff" fgColor="#000000" />
+                {(() => {
+                const qrValue = (link.shortUrl || '').trim().replace(/\\\//g, '/');
+                console.log('QR Value →', JSON.stringify(qrValue)); 
+
+                return (
+                  <QRCodeSVG
+                    value={qrValue}
+                    size={256}
+                    level="H"
+                    includeMargin={true}
+                    bgColor="#ffffff"
+                    fgColor="#000000"
+                  />
+                );
+              })()}
+
+                {/* <QRCodeSVG value={link.shortUrl} size={256} level="H" includeMargin={true} bgColor="#ffffff" fgColor="#000000" /> */}
               </div>
 
               <div className="text-center">
