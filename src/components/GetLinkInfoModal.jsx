@@ -28,9 +28,7 @@ const GetLinkInfoModal = ({ isOpen, onClose }) => {
     setLinkInfo(null);
 
     try {
-      const data = await getFullUrl(shortCode);
-      console.log(data);
-      setLinkInfo(data);
+      const data = await getFullUrl(shortCode)
       toast.success('Link information fetched!');
     } catch (err) {
       setError(err.message || 'Failed to fetch link information');
