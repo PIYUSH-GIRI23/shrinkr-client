@@ -1,16 +1,100 @@
-# React + Vite
+## Folder Structure : 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<pre>
+📁 client/
+├── 📂 public/                            # Static assets (favicons, etc.)
+│
+├── 📂 src/
+│   ├── 🎨 assets/                        # Images, SVGs, icons
+│   │
+│   ├── 🧩 components/
+│   │   ├── 🪄 CreateLinkModal.jsx        → Modal to create new shortened URLs
+│   │   ├── 📊 Dashboard.jsx              → Main dashboard showing user's links
+│   │   ├── 🗑️ DeleteAccountModal.jsx     → Confirm account deletion
+│   │   ├── 🔍 GetLinkInfoModal.jsx       → Fetch & display link info
+│   │   ├── 🏠 Homepage.jsx               → Landing page with intro & CTA
+│   │   ├── 📈 LinkDetailsModal.jsx       → Shows analytics for each short link
+│   │   └── 🔗 Redirect.jsx               → Handles short URL redirection
+│   │
+│   ├── ⚙️ controller/
+│   │   ├── 🔐 authController.js          → User auth (login, signup, logout)
+│   │   └── 🧭 linkController.js          → Link CRUD logic
+│   │
+│   ├── 🧠 utils/
+│   │   └── 🧾 utils.js                   → Helper & API utility functions
+│   │
+│   ├── 🧩 App.jsx                        → Root component (routes & layout)
+│   ├── 🎨 App.css                        → Global styles (Tailwind integration)
+│   ├── 🎨 index.css                      → Base CSS
+│   └── 🚀 main.jsx                       → Entry point — renders <App />
+│
+├── ⚙️ .env                               # Environment variables
+├── 🧱 index.html                         # Base HTML (Vite entry)
+├── 📦 package.json                       # Project dependencies & scripts
+├── ⚙️ postcss.config.cjs                 # Tailwind/PostCSS config
+├── 🎨 tailwind.config.js                 # Tailwind settings
+├── ⚡ vite.config.js                     # Vite build config
+└── 📘 README.md                          # Project documentation
+</pre>
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🧠 Tech Stack :
 
-## React Compiler
+| Layer              | Technology                                     |
+| ------------------ | ---------------------------------------------- |
+| Frontend Framework | ⚛️ React (with Vite)                           |
+| Styling            | 🎨 Tailwind CSS                                |
+| State Management   | ⚡ React Hooks                                  |
+| Routing            | 🧭 React Router                                |
+| Build Tool         | ⚙️ Vite                                        |
+| API                | 🌍 Shrinkr Backend (Express + MongoDB + Redis) |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+⚙️ Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Make sure you have the following installed:
+
+🟢 Node.js ≥ 18.x
+
+📦 npm or pnpm
+
+🐙 Git
+
+🗄️ Shrinkr Backend (see setup below)
+
+---
+
+🧰 Setup Instructions :
+
+
+1️⃣ Clone the Shrinkr Backend
+
+<pre>
+git clone https://github.com/PIYUSH-GIRI23/shrinkr-server.git
+cd shrinkr-server
+npm install
+node server.js
+</pre>
+
+Your backend should now be running at
+👉 http://localhost:8000
+
+2️⃣ Clone and Run the Frontend
+
+<pre>
+git clone https://github.com/PIYUSH-GIRI23/shrinkr-client.git
+cd shrinkr-client
+npm install
+</pre>
+
+3️⃣ Run the Development Server
+
+<pre>
+npm run dev
+</pre>
+
+Now open your browser and visit:
+👉 http://localhost:5173
+
