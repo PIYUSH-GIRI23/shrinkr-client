@@ -29,11 +29,12 @@
 │   └── 🚀 main.jsx                       → Entry point — renders <App />
 │
 ├── ⚙️ .env                               # Environment variables
+├── ⚙️ .env.config                        # Demo file for setting up environment variables
 ├── 🧱 index.html                         # Base HTML (Vite entry)
 ├── 📦 package.json                       # Project dependencies & scripts
 ├── ⚙️ postcss.config.cjs                 # Tailwind/PostCSS config
 ├── 🎨 tailwind.config.js                 # Tailwind settings
-├── ⚡ vite.config.js                     # Vite build config
+├── ⚡ vite.config.js                      # Vite build config
 └── 📘 README.md                          # Project documentation
 </pre>
 
@@ -81,12 +82,13 @@ node server.js
 Your backend should now be running at
 👉 http://localhost:8000
 
-2️⃣ Clone and Run the Frontend
+2️⃣ Clone teh frontend and copy the environment variables
 
 <pre>
 git clone https://github.com/PIYUSH-GIRI23/shrinkr-client.git
 cd shrinkr-client
 npm install
+cp .env.config .env
 </pre>
 
 3️⃣ Run the Development Server
@@ -97,4 +99,13 @@ npm run dev
 
 Now open your browser and visit:
 👉 http://localhost:5173
+
+---
+
+🌐 Connect with Me
+
+<a href="mailto:giri.piyush2003@gmail.com"><img src="https://img.shields.io/badge/Mail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Mail"></a>
+<a href="https://github.com/PIYUSH-GIRI23"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
+<a href="https://www.linkedin.com/in/piyush-giri-031b71254/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+<a href="https://x.com/GIRIPIYUSH2310"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X"></a>
 
