@@ -20,7 +20,6 @@ export const createLink = async (formData) => {
         access_token: accessToken,
         refresh_token: refreshToken
     }
-    console.log(formData)
     const response = await fetch(`${backendUrl}${createLinkRoute}`, {
       method: 'POST',
       headers: {
@@ -71,7 +70,6 @@ export const deleteCode = async (shortCode) => {
         access_token: accessToken,
         refresh_token: refreshToken
     }
-    console.log(shortCode)
     const response = await fetch(`${backendUrl}${deleteShortUrlRoute}${shortCode}`, {
       method: 'DELETE',
       headers: {
@@ -155,7 +153,6 @@ export const getFullUrl = async (shortCode) => {
         throw new Error("Short code is required to fetch the full URL.");
     }
 
-    console.log(`${backendUrl}${getFullUrlRoute}${shortCode}`)
     const response = await fetch(`${backendUrl}${getFullUrlRoute}${shortCode}`, {
       method: 'GET',
       headers: {

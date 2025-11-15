@@ -152,7 +152,6 @@ const Dashboard = () => {
       } else {
         toast.error('Failed to create link - invalid response');
       }
-      console.log(formData);
     } catch (error) {
       console.error('Error creating link:', error);
       if (error.message.includes('token') || error.message.includes('auth')) {

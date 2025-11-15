@@ -16,7 +16,6 @@ export const truncateText = (text, maxLength = 50) => {
 export const isSecureUrl = (urlString) => {
   try {
     const url = new URL(urlString);
-    console.log(url);
     return url.protocol === 'https:';
   } catch (e) {
     return false;

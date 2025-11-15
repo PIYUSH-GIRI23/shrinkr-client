@@ -29,6 +29,7 @@ const GetLinkInfoModal = ({ isOpen, onClose }) => {
 
     try {
       const data = await getFullUrl(shortCode)
+      setLinkInfo(data);
       toast.success('Link information fetched!');
     } catch (err) {
       setError(err.message || 'Failed to fetch link information');
@@ -102,17 +103,6 @@ const GetLinkInfoModal = ({ isOpen, onClose }) => {
 
           {linkInfo && (
             <div className="space-y-3 mt-4 p-4 bg-[#061226] border border-gray-700 rounded-lg">
-              <div>
-                <label className="block text-xs font-medium text-gray-400 mb-1">SHORT URL</label>
-                <a
-                  href={`${window.location.origin}/${linkInfo.shortCode}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 text-sm break-all"
-                >
-                  {window.location.origin}/{linkInfo.shortCode}
-                </a>
-              </div>
 
               <div>
                 <label className="block text-xs font-medium text-gray-400 mb-1">DESTINATION URL</label>
