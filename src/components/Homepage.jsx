@@ -32,12 +32,14 @@ const Stat = ({ label, value, duration = 1200 }) => {
 
 const Homepage = () => {
   const navigate = useNavigate()
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
     const accessToken = localStorage.getItem('shrinkr-accessToken')
     const refreshToken = localStorage.getItem('shrinkr-refreshToken')
 
-    if (accessToken && refreshToken) {
+    if (accessToken || refreshToken) {
+      setIsLoggedIn(true)
       navigate('/dashboard')
       return
     }
@@ -49,7 +51,7 @@ const Homepage = () => {
     const accessToken = localStorage.getItem('shrinkr-accessToken')
     const refreshToken = localStorage.getItem('shrinkr-refreshToken')
 
-    if (accessToken && refreshToken) {
+    if (accessToken || refreshToken) {
       navigate('/dashboard')
       return
     }
@@ -77,9 +79,9 @@ const Homepage = () => {
         <div className="flex items-center gap-3">
           <button
             onClick={handleAuth}
-            className="bg-white text-[#071129] px-4 py-2 rounded-full font-semibold hover:scale-105 transform transition"
+            className="bg-white text-[#071129] px-4 py-2 rounded-full font-semibold hover:scale-105 transform transition cursor-pointer"
           >
-            Sign up Free
+            {isLoggedIn ? 'Dashboard' : 'Sign up Free'}
           </button>
         </div>
       </nav>
@@ -97,10 +99,10 @@ const Homepage = () => {
             </p>
 
             <button
-              onClick={() => handleAuth()}
-              className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition transform hover:-translate-y-0.5"
+              onClick={handleAuth}
+              className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition transform hover:-translate-y-0.5 cursor-pointer"
             >
-              Get Started — It's Free →
+              {isLoggedIn ? 'Go to Dashboard →' : "Get Started — It's Free →"}
             </button>
 
             <div className="mt-12 flex gap-6 items-center">
@@ -119,10 +121,10 @@ const Homepage = () => {
                 posters, or business cards.
               </p>
               <button
-                onClick={() => handleAuth()}
-                className="mt-6 bg-blue-600 hover:bg-blue-700 px-5 py-3 rounded-md font-semibold transition"
+                onClick={handleAuth}
+                className="mt-6 bg-blue-600 hover:bg-blue-700 px-5 py-3 rounded-md font-semibold transition cursor-pointer"
               >
-                Generate Your QR →
+                {isLoggedIn ? 'Go to Dashboard →' : 'Generate Your QR →'}
               </button>
             </div>
           </div>
@@ -167,10 +169,10 @@ const Homepage = () => {
             your needs.
           </p>
           <button
-            onClick={() => handleAuth()}
-            className="bg-white text-[#071129] px-6 py-3 rounded-full font-semibold hover:scale-105 transition"
+            onClick={handleAuth}
+            className="bg-white text-[#071129] px-6 py-3 rounded-full font-semibold hover:scale-105 transition cursor-pointer"
           >
-            Try Shrinkr Today →
+            {isLoggedIn ? 'Go to Dashboard →' : 'Try Shrinkr Today →'}
           </button>
         </section>
 
@@ -197,10 +199,10 @@ const Homepage = () => {
             No credit card required. Get started in seconds with our free plan.
           </p>
           <button
-            onClick={() => handleAuth()}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold"
+            onClick={handleAuth}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold cursor-pointer"
           >
-            Sign up — It's free
+            {isLoggedIn ? 'Go to Dashboard' : "Sign up — It's free"}
           </button>
         </section>
       </main>
