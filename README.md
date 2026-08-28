@@ -63,26 +63,10 @@ Make sure you have the following installed:
 
 🐙 Git
 
-🗄️ Shrinkr Backend (see setup below)
-
----
 
 🧰 Setup Instructions :
 
-
-1️⃣ Clone the Shrinkr Backend
-
-<pre>
-git clone https://github.com/PIYUSH-GIRI23/shrinkr-server.git
-cd shrinkr-server
-npm install
-node server.js
-</pre>
-
-Your backend should now be running at
-👉 http://localhost:8000
-
-2️⃣ Clone teh frontend and copy the environment variables
+ Clone teh frontend and copy the environment variables
 
 <pre>
 git clone https://github.com/PIYUSH-GIRI23/shrinkr-client.git
